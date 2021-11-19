@@ -4,7 +4,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 const Spinner = () => {
     return (
         <>
-            <CircularProgress color="inherit" />
+            <CircularProgress color="inherit" sx={{margin: '5rem'}}/>
         </>
     )
 }

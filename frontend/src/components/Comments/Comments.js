@@ -41,4 +41,4 @@ const Comments = ({ match }) => {
     )
 }
 
-export default Comments
+export default Comments;

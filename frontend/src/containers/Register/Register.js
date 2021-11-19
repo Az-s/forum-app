@@ -11,7 +11,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useDispatch, useSelector } from "react-redux";
-// import {SignUpUser} from '../../store/actions/usersActions';
+import { registerUser } from '../../store/actions/usersActions';
 
 const Copyright = (props) => {
     return (
@@ -29,8 +29,8 @@ const Copyright = (props) => {
 const theme = createTheme();
 
 const Register = () => {
-    // const dispatch = useDispatch();
-    // const error = useSelector(state => state.users.registerError);
+    const dispatch = useDispatch();
+    const error = useSelector(state => state.users.registerError);
 
     const [user, setUser] = useState({
         username: '',
@@ -46,17 +46,17 @@ const Register = () => {
         }));
     };
 
-    // const getFieldError = fieldName => {
-    //     try {
-    //         return error.errors[fieldName].message;
-    //     } catch (e) {
-    //         return undefined;
-    //     }
-    // };
+    const getFieldError = fieldName => {
+        try {
+            return error.errors[fieldName].message;
+        } catch (e) {
+            return undefined;
+        }
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // dispatch(SignUpUser({...user}));
+        dispatch(registerUser({ ...user }));
     };
 
     return (
@@ -104,7 +104,7 @@ const Register = () => {
                                 autoComplete="new-username"
                                 autoFocus
                                 onChange={inputChangeHandler}
-                            // error={getFieldError('username')}
+                                error={getFieldError('username')}
                             />
                             <TextField
                                 margin="normal"
@@ -115,7 +115,7 @@ const Register = () => {
                                 type="password"
                                 autoComplete="new-password"
                                 onChange={inputChangeHandler}
-                            // error={getFieldError('username')}
+                                error={getFieldError('username')}
                             />
                             <Button
                                 type="submit"

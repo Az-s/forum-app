@@ -3,6 +3,7 @@ import { Grid, Card, CardMedia, CardHeader, CardContent, Typography, } from '@mu
 import { useDispatch, useSelector } from "react-redux";
 import {fetchPost} from '../../store/actions/postsActions';
 import Comments from '../../components/Comments/Comments';
+import CommentsForm from '../../components/CommentsForm/CommentsForm';
 
 const Post = ({match}) => {
     const dispatch = useDispatch();
@@ -32,6 +33,7 @@ const Post = ({match}) => {
                     </Typography>
                 </CardContent>
                 <Comments />
+                <CommentsForm />
             </Card>
         </Grid>
     )

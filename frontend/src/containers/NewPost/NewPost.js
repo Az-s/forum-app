@@ -1,10 +1,16 @@
-import React from 'react';
+import React , {useEffect} from 'react';
+import Typography from '@mui/material/Typography';
+import PostForum from '../../components/PostForm/PostForum';
 
 const NewPost = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+        <Typography variant="h4" sx={{ margin: '1rem 0' }}>New product</Typography>
+        <PostForum
+            // onSubmit={onSubmit}
+            // categories={categories}
+        />
+    </>
     )
 }
 

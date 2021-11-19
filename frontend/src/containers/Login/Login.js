@@ -25,6 +25,8 @@ const Copyright = (props) => {
     );
 };
 
+const theme = createTheme();
+
 const Login = () => {
     // const dispatch = useDispatch();
     // const error = useSelector(state => state.users.loginError);

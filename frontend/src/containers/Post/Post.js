@@ -1,8 +1,10 @@
 import React from 'react';
-import { Grid, Card, CardMedia, CardHeader, CardContent, Button, Typography, CardActions } from '@mui/material';
+import { Grid, Card, CardMedia, CardHeader, CardContent, Typography, } from '@mui/material';
 import Comments from '../../components/Comments/Comments';
 
-const Post = () => {
+const Post = ({match}) => {
+
+
     return (
         <Grid container justifyContent='center'>
             <Card sx={{ minWidth: 1000, margin: '1rem' }}>

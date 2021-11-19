@@ -7,8 +7,8 @@ import axiosApi from "../axiosApi";
 
 
 const rootReducer = combineReducers({
-  'posts': postsReducer,
-  'users': usersReducer,
+  posts: postsReducer,
+  users: usersReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

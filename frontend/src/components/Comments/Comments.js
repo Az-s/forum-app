@@ -1,27 +1,31 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { Grid, Paper, CardMedia , Button } from '@mui/material';
+import { Grid, } from '@mui/material';
+import { fetchComments } from '../../store/actions/postsActions';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import Divider from '@mui/material/Divider';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 
-const Comments = () => {
-    // const dispatch = useDispatch();
-    // const messages = useSelector(state => state.posts.messages);
+const Comments = ({ match }) => {
+    const dispatch = useDispatch();
+    const comments = useSelector(state => state.posts.comments);
 
     // useEffect(() => {
     //     setInterval(() => {
-    //         dispatch(fetchMessages(match.params.id));
-    //       }, 1000);
-    // }, [dispatch, match.params.id]]); 
+    //         dispatch(fetchComments(match.params.id));
+    //     }, 1000);
+    // }, [dispatch, match.params.id]);
 
-    return messages && (
+    useEffect(() => {
+        dispatch(fetchComments(match.params.id));
+      }, [dispatch, match.params.id]);
+
+    return comments && (
         <Grid container justifyContent='center' mt={3}>
             <Grid item container justifyContent="space-around" alignItems="center" mb={4}>
                 <Grid item>
-                    <Typography variant="h4">Messages</Typography>
+                    <Typography variant="h4">Comments</Typography>
                 </Grid>
             </Grid>
             <Grid sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -31,8 +35,9 @@ const Comments = () => {
                 >
                     <Grid sx={{ bgcolor: '#e8e8e8', justifyContent: 'center', margin: '1rem' }}>
                         <ListItem disablePadding>
-                            <ListItemText inset primary={messages.messages}/>
-                            </ListItem>
+                            <ListItemText inset primary={comments.user} />
+                            <ListItemText inset primary={comments.comment} />
+                        </ListItem>
                     </Grid>
                 </List>
             </Grid>

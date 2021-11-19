@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Grid, Button, TextField, MenuItem } from '@mui/material';
+import { Grid, Button, TextField } from '@mui/material';
 
 const PostForum = ({onSubmit}) => {
     const [state, setState] = useState({
@@ -16,7 +16,7 @@ const PostForum = ({onSubmit}) => {
             formData.append(key, state[key]);
         });
 
-        // onSubmit(formData);
+        onSubmit(formData);
     };
 
     const inputChangeHandler = e => {

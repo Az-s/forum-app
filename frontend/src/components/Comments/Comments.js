@@ -11,15 +11,11 @@ const Comments = ({ match }) => {
     const dispatch = useDispatch();
     const comments = useSelector(state => state.posts.comments);
 
-    // useEffect(() => {
-    //     setInterval(() => {
-    //         dispatch(fetchComments(match.params.id));
-    //     }, 1000);
-    // }, [dispatch, match.params.id]);
-
     useEffect(() => {
-        dispatch(fetchComments(match.params.id));
-      }, [dispatch, match.params.id]);
+        setInterval(() => {
+            dispatch(fetchComments(match.params.id));
+        }, 1000);
+    }, [dispatch, match.params.id]);
 
     return comments && (
         <Grid container justifyContent='center' mt={3}>
